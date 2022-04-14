@@ -10,7 +10,7 @@ function buildPage() {
   data = JSON.parse(data);
   data.sort((a, b) => a.title.localeCompare(b.title));
   for (let category in categories) {
-    r = r + "## " + categories[category] + "\n";
+    r = r + "\n## " + categories[category] + "\n";
     for(let i=0; i<data.length; i++) {
       if (data[i]["category"] == categories[category]) {
         r = r + "- ["+data[i]["title"]+"]("+data[i]["url"]+")"+" "+data[i]["description"]+"\n";
