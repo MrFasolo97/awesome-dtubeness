@@ -5,7 +5,7 @@ const string_similarity = require("string-similarity");
 
 function buildPage() {
   const categories = JSON.parse(fs.readFileSync('data/categories.json'));
-  let r = "";
+  let r = "# Awesome DTubeness\n";
   let data = fs.readFileSync('data/data.json');
   data = JSON.parse(data);
   data.sort((a, b) => a.title.localeCompare(b.title));
@@ -17,7 +17,7 @@ function buildPage() {
       }
     }
   }
-  fs.writeFileSync("pages/list.md", r);
+  fs.writeFileSync("docs/list.md", r);
 }
 
 async function addElement(url, title, desc, category) {
