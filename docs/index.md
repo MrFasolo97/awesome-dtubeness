@@ -10,6 +10,8 @@
 - [MrFasolo97/dtube-videofetcher](https://github.com/MrFasolo97/dtube-videofetcher) Fetches links by tag on DTube blockchain from MongoDB.
 - [MrFasolo97/ipfs-checker](https://github.com/MrFasolo97/ipfs-checker) IPFS node checker and autorestarter (on crash).
 - [MrFasolo97/yt2ipfs](https://github.com/MrFasolo97/yt2ipfs) Server program with API to import files from YouTube to IPFS, ready to be published on DTube.
+- [oneloveipfs/ipfsVideoUploader](https://github.com/oneloveipfs/ipfsVideoUploader) Cross-platform IPFS uploader for 3Speak and DTube. Also supports Skynet protocol. Can be used to bill users.
 - [sag333ar/dtube](https://github.com/sag333ar/dtube) DTube mobile application development tutorials repository.
+- [techcoderx/dblocks](https://github.com/techcoderx/dblocks) Avalon block explorer.
 
 ## miscellanea
