@@ -1,0 +1,27 @@
+{
+  "name": "awesome-dtubeness",
+  "version": "0.0.1",
+  "description": "Automatic list builder and publisher about DTube related projects/info",
+  "main": "build.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrFasolo97/awesome-dtubeness.git"
+  },
+  "author": "MrFasolo97",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MrFasolo97/awesome-dtubeness/issues"
+  },
+  "homepage": "https://mrfasolo97.github.io/awesome-dtubeness/",
+  "dependencies": {
+    "commander": "^9.2.0",
+    "enquirer": "^2.3.6",
+    "string-similarity": "^4.0.4"
+  }
+}
