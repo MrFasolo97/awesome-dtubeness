@@ -20,9 +20,10 @@ function buildPage() {
   fs.writeFileSync("docs/list.md", r);
 }
 
-async function addElement(url, title, desc, category) {
+async function addElement(url, desc, category, title=null) {
     let data = fs.readFileSync('data/data.json');
     let json = JSON.parse(data);
+    let new_title = null;
     if (category === null) {
       category = 'unknown';
     }
@@ -34,6 +35,7 @@ async function addElement(url, title, desc, category) {
                   type: 'confirm',
                   name: 'double_check',
                   message: 'Did you mean '+json[item]["url"]+" ?",
+                  default: "y",
                 }
               ).then(answer => {
                 return answer;
@@ -44,7 +46,13 @@ async function addElement(url, title, desc, category) {
             }
         }
     }
-    json.push({url: url, title: title, description: desc, category: category});
+    if (title !== null) {
+      new_title = title;
+    } else {
+      let array_title = url.split("/");
+      new_title = array_title[array_title.length-2]+"/"+array_title[array_title.length-1];
+    }
+    json.push({title: new_title, url: url, description: desc, category: category});
     fs.writeFileSync('data/data.json', JSON.stringify(json));
 }
 
@@ -56,10 +64,10 @@ program
   .version('0.0.1');
   program.command("add").description("Adds an element to the list")
   .argument("<URL>", "URL to the relevant page (I.e. GitHub repository)")
-  .argument("<title>", "Will be the name on the list, also the link's text.")
   .argument("<desc>", "The item description.")
-  .addOption(new Option('-c, --category <category_name>', 'In which category should we add this item?').choices(categories))
-  .action((url, title, desc, category) => addElement(url, title, desc, category.category));
+  .addOption(new Option('-c, --category <category_name>', 'In which category should we add this item?', "miscellanea").choices(categories))
+  .addOption(new Option('-t, --title <title>', 'The title this item should have (defaults to user/repository).', null))
+  .action((url, desc, category, title) => addElement(url, desc, category.category, title.title));
 program.command("build").description("Builds the page").action(() => buildPage());
 
 program.parse();
