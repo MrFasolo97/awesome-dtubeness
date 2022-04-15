@@ -53,7 +53,7 @@ async function addElement(url, desc, category, title=null) {
       new_title = array_title[array_title.length-2]+"/"+array_title[array_title.length-1];
     }
     json.push({title: new_title, url: url, description: desc, category: category});
-    fs.writeFileSync('data/data.json', JSON.stringify(json));
+    fs.writeFileSync('data/data.json', JSON.stringify(json, null, 4));
 }
 
 const categories = JSON.parse(fs.readFileSync('data/categories.json'));
