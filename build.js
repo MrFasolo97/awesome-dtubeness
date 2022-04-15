@@ -17,7 +17,7 @@ function buildPage() {
       }
     }
   }
-  fs.writeFileSync("docs/list.md", r);
+  fs.writeFileSync("docs/index.md", r);
 }
 
 async function addElement(url, desc, category, title=null) {
